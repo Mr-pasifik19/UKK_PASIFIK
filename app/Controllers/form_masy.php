@@ -16,6 +16,7 @@ class form_masy extends BaseController
             'password' => md5($this->request->getVar('password')),
             'telp' => $this->request->getVar('nope')            
         ]);
+        echo "<script>alert('Data berhasil didaftarkan, silahkan login untuk melanjutkan!');</script>";
         return view('/utama/masuk');
     }
 
@@ -35,16 +36,23 @@ class form_masy extends BaseController
                     'nama' => $dataUser['nama'],
                     'logged_in' => TRUE
                 ]);
+                
                 return redirect()->to(base_url('home'));
             } else {
-                session()->setFlashdata('error', 'Username & Password Salah');
-                return redirect()->back();
+                echo "<script>alert('Password Salah!');</script>";
+                return view('/utama/masuk');
             }
         } else {
-            session()->setFlashdata('error', 'Username & Password Salah');
-            return redirect()->back();
+            echo "<script>alert('Username Salah!');</script>";
+            return view('/utama/masuk');
         }
     }
     
+        public function out(){
+            session()->set([
+                    'logged_in' => FALSE
+                ]);
+                return redirect()->to(base_url('/'));
+        }
 
 }
