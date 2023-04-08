@@ -51,7 +51,7 @@
 			<div class="col-md-12 my-2 card">
 				<div class="card-body">
 					<div class="login-container">
-                    <form action="proses_login.php" method="POST">
+                    <form action="<?= base_url('log')?>" method="POST">
                         <h2>Halaman Masuk</h2>
                         <div class="form-group">
                         <label for="username">Username:</label>

@@ -39,7 +39,10 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
 $routes->get('masuk', 'Home::masuk');
 $routes->get('daftar', 'Home::daftar');
-$routes->post('reg', 'Rakyat::save');
+
+$routes->post('reg', 'form_masy::reg');
+$routes->post('log', 'form_masy::log');
+$routes->get('home', 'form_masy::dashboard');
 
 /*
  * --------------------------------------------------------------------

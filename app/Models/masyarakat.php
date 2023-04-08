@@ -5,16 +5,9 @@ use CodeIgniter\Model;
 use CodeIgniter\Database\ConnectionInterface;
 
 class masyarakat extends Model {
-	
-	protected $db;
-	public function __construct(ConnectionInterface &$db) {
-		$this->db =& $db;
-	}
-
-	function add($data) {
-		return $this->db
-                        ->table('masyarakat')
-                        ->insert($data);
-	}
+	protected $table = "masyarakat";
+    protected $primaryKey = "nik";
+    protected $allowedFields = ["nik","nama","username", "password", "telp"];
+    protected $useTimestamps = false;
 	
 }
